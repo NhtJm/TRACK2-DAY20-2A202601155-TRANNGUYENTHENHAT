@@ -298,7 +298,7 @@ Thứ đắt nhất ở đây không phải bytes — mà là **dequantization v
       đã được thay bằng nhận xét của tôi
 - [x] 5 screenshots trong `submission/screenshots/`
 - [x] `make verify` → **exit 0**
-- [ ] Repo GitHub ở chế độ **public**
+- [x] Repo GitHub ở chế độ **public** — https://github.com/NhtJm/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
 - [ ] Đã paste public URL vào VinUni LMS
 - [x] **Không** commit `models/*.gguf` hay `runtime/` (đã có trong `.gitignore`)
 
