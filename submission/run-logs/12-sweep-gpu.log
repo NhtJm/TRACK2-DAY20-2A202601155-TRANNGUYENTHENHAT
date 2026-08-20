@@ -1,0 +1,50 @@
+===============================================================================
+COMMAND : make sweep-gpu
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:02:54 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  GPU offload sweep on gemma-4-E2B-it-UD-Q4_K_XL.gguf
+────────────────────────────────────────────────────────────────
+  backend(s): apple_metal · threads 12 · grid [0, 8, 16, 24, 32, 99]
+
+   -ngl   0   tg128 =      8.5 tok/s
+   -ngl   8   tg128 =      5.6 tok/s
+   -ngl  16   tg128 =     25.9 tok/s
+   -ngl  24   tg128 =     22.7 tok/s
+   -ngl  32   tg128 =     41.0 tok/s
+   -ngl  99   tg128 =     62.1 tok/s
+
+# Bonus - GPU offload sweep
+
+Host `Darwin-arm64` · backend(s) `apple_metal` ·
+llama.cpp `b10488` · `threads=12` · metric `tg128`
+
+| -ngl | tg128 (tok/s) | vs -ngl 0 | vs best |
+|:--|--:|--:|--:|
+| 0 | 8.5 | 1.00x | 14% |
+| 8 | 5.6 | 0.66x | 9% |
+| 16 | 25.9 | 3.05x | 42% |
+| 24 | 22.7 | 2.68x | 37% |
+| 32 | 41.0 | 4.82x | 66% |
+| 99 | 62.1 | 7.31x | 100% |
+
+Best: `-ngl 99` at 62.1 tok/s
+-- 7.31x faster than CPU-only.
+
+Where the curve flattens tells you the model ran out of layers to move. Where it
+*peaks below* full offload tells you something did not fit and the accelerator
+started paying to fetch weights it could not hold.
+
+## Your finding (required -- replace this line)
+
+_Is full offload best on your machine? If the curve peaked at a partial value,
+what ran out first -- VRAM, or bandwidth between host and device?_
+
+==> Wrote benchmarks/bonus-gpu-offload-sweep.md
+
+===============================================================================
+FINISHED: 2026-08-20 23:05:02 +07   ELAPSED: 128s   EXIT CODE: 0
+===============================================================================

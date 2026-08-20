@@ -1,0 +1,22 @@
+[
+  {
+    "label": "f16",
+    "flags": "(default f16)",
+    "kv": {},
+    "rss_mb": 134.3,
+    "passed": 9,
+    "total": 10,
+    "decode_tok_s": 57.1,
+    "prefill_ms": 105.2
+  },
+  {
+    "label": "q8_0",
+    "flags": "--cache-type-k q8_0 --cache-type-v q8_0",
+    "kv": {},
+    "rss_mb": 152.4,
+    "passed": 9,
+    "total": 10,
+    "decode_tok_s": 45.3,
+    "prefill_ms": 123.6
+  }
+]

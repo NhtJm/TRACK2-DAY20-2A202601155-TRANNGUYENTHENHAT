@@ -1,0 +1,55 @@
+===============================================================================
+COMMAND : make tune
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:56:03 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  Thread sweep on gemma-4-E2B-it-UD-Q4_K_XL.gguf
+────────────────────────────────────────────────────────────────
+  cores   : 12 physical · 12 logical
+  grid    : [1, 6, 12, 24]
+  metric  : tg128   ngl: 99
+  (each point runs llama-bench -- a few minutes total)
+
+   -t   1   tg128 =    65.5 tok/s
+   -t   6   tg128 =    65.9 tok/s
+   -t  12   tg128 =    47.6 tok/s
+   -t  24   tg128 =    57.5 tok/s
+
+# 01 - Tune: thread-count sweep
+
+Model `gemma-4-E2B-it-UD-Q4_K_XL.gguf` · host `Darwin-arm64` · llama.cpp `b10488`
+CPU: **12 physical · 12 logical** cores · `ngl=99` · metric `tg128`
+
+| threads (-t) | tg128 (tok/s) | vs best |
+|:--|--:|--:|
+| 1 | 65.5 | 99% |
+| 6 | 65.9 | 100% |
+| 12 | 47.6 | 72% |
+| 24 | 57.5 | 87% |
+
+**Best**: `-t 6` at 65.9 tok/s
+**Slowest tested**: `-t 12` at 47.6 tok/s (1.38x spread)
+**Against the physical-core default** (`-t 12`, 47.6 tok/s): 1.38x
+
+Use this in your run:
+
+```bash
+LAB_N_THREADS=6 make bench
+```
+
+## Your explanation (required -- replace this line)
+
+_Where is the knee, and why there? If the peak sits at your physical core count
+and drops above it, say what the extra threads are competing for. If your curve
+does something else -- flat, or still climbing at 2x logical cores -- say that
+instead and reason about why. A result that contradicts the expected shape is
+worth more than one that matches it, as long as you explain it._
+
+==> Wrote benchmarks/01-tuning-tg128.md
+
+===============================================================================
+FINISHED: 2026-08-20 22:56:29 +07   ELAPSED: 26s   EXIT CODE: 0
+===============================================================================

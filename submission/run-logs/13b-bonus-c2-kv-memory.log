@@ -1,0 +1,14 @@
+===============================================================================
+COMMAND : /private/tmp/claude-501/-Users-nhatnguyen-Desktop-AIA-labs-phase2-track2-TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/3b94ac3b-eb9c-400e-9397-1287f5fdbbd1/scratchpad/kv_mem.sh
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:08:44 +07
+===============================================================================
+llama.cpp b10488 · Gemma 4 E2B UD-Q4_K_XL · ngl=99 (Metal) · ctx=32768 split over 4 slots
+
+  f16  | ctx=32768 parallel=4 | Physical footprint:         372.9M | RSS=338 MB | flags: <default f16>
+  q8_0  | ctx=32768 parallel=4 | Physical footprint:         265.9M | RSS=187 MB | flags: --cache-type-k q8_0 --cache-type-v q8_0
+
+===============================================================================
+FINISHED: 2026-08-20 23:08:58 +07   ELAPSED: 14s   EXIT CODE: 0
+===============================================================================

@@ -1,0 +1,42 @@
+===============================================================================
+COMMAND : make serve
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:50:48 +07
+===============================================================================
+0.00.068.807 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.074.862 W srv  llama_server: -----------------
+0.00.074.864 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.074.864 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.074.864 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.074.864 W srv  llama_server: -----------------
+0.00.077.189 I srv    load_model: loading model '/Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/models/gemma-4-E2B-it-UD-Q4_K_XL.gguf'
+0.00.903.993 W load: control-looking token:     50 '<|tool_response>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.908.579 W load: control-looking token:    212 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.913.381 W load: control-looking token:      1 '<eos>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.00.916.784 W load: special_eog_ids contains '<|tool_response>', removing '</s>' token from EOG list
+0.00.955.784 I cmn          init: llama threadpool init, n_threads = 12
+0.05.791.706 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 512, kv_unified = 'false'
+0.05.814.006 I srv  llama_server: model loaded
+0.05.814.017 I srv  llama_server: listening on http://127.0.0.1:8080
+0.05.814.018 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+0.05.814.019 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
+0.06.961.375 I slot get_availabl: id  3 | task -1 | selected slot by LRU, t_last = -1
+0.06.961.421 I slot launch_slot_: id  3 | task 1 | processing task, is_child = 0
+0.07.553.065 I slot print_timing: id  3 | task 1 | prompt eval time =     208.95 ms /    35 tokens (    5.97 ms per token,   167.51 tokens per second)
+0.07.553.068 I slot print_timing: id  3 | task 1 |        eval time =     382.67 ms /    24 tokens (   16.64 ms per token,    60.10 tokens per second)
+0.07.553.069 I slot print_timing: id  3 | task 1 |       total time =     591.61 ms /    59 tokens
+0.07.553.069 I slot print_timing: id  3 | task 1 |    graphs reused =         23
+0.07.553.126 I slot      release: id  3 | task 1 | stop processing: n_tokens = 58, truncated = 0
+0.41.374.013 I slot get_availabl: id  3 | task -1 | selected slot by LCP similarity, f_sim_best = 1.000 (> 0.100 thold), f_keep = 0.603
+0.41.374.295 I slot launch_slot_: id  3 | task 30 | processing task, is_child = 0
+0.42.854.733 I slot print_timing: id  3 | task 30 | prompt eval time =    1075.94 ms /     5 tokens (  215.19 ms per token,     4.65 tokens per second)
+0.42.854.736 I slot print_timing: id  3 | task 30 |        eval time =     404.49 ms /    24 tokens (   17.59 ms per token,    56.86 tokens per second)
+0.42.854.741 I slot print_timing: id  3 | task 30 |       total time =    1480.43 ms /    29 tokens
+0.42.854.742 I slot print_timing: id  3 | task 30 |    graphs reused =         45
+0.42.854.821 I slot      release: id  3 | task 30 | stop processing: n_tokens = 58, truncated = 0
+2.21.489.966 I srv    operator(): operator(): cleaning up before exit...
+
+===============================================================================
+FINISHED: 2026-08-20 23:53:10 +07   ELAPSED: 142s   EXIT CODE: 0
+===============================================================================

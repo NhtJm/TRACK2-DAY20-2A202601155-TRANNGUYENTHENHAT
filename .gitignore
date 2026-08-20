@@ -37,3 +37,6 @@ benchmarks/.llama-server.log
 #   benchmarks/*.md, *.json          rubric items 3, 4, 5, 9, 10, 12, 13 + bonus
 #   benchmarks/locust-*_stats.csv    input to `make load-report`
 #   submission/**                    your report + screenshots
+
+# Local agent scratch state — not part of the submission.
+.omc/

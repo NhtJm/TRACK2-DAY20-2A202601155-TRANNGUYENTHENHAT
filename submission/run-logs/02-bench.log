@@ -1,0 +1,70 @@
+===============================================================================
+COMMAND : make bench
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:55:09 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  primary  (UD-Q4_K_XL)
+────────────────────────────────────────────────────────────────
+  model     : gemma-4-E2B-it-UD-Q4_K_XL.gguf
+  threads   : 12   ngl: 99   ctx: 2048   max_tokens: 64
+  starting llama-server ...
+  ready in 6195 ms (model load + warm-up of the HTTP stack)
+   [ 1/10] ttft=  336.6ms  tpot= 18.6ms  e2e=  1511.5ms  out=64
+   [ 2/10] ttft=  107.0ms  tpot= 17.7ms  e2e=   443.7ms  out=20
+   [ 3/10] ttft=  114.3ms  tpot= 19.9ms  e2e=  1369.9ms  out=64
+   [ 4/10] ttft=  117.5ms  tpot= 19.1ms  e2e=  1319.6ms  out=64
+   [ 5/10] ttft=  109.3ms  tpot= 18.9ms  e2e=  1296.9ms  out=64
+   [ 6/10] ttft=  120.2ms  tpot= 19.3ms  e2e=  1333.8ms  out=64
+   [ 7/10] ttft=  117.9ms  tpot= 19.0ms  e2e=  1315.6ms  out=64
+   [ 8/10] ttft=  108.3ms  tpot= 17.9ms  e2e=  1237.2ms  out=64
+   [ 9/10] ttft=  107.9ms  tpot= 17.9ms  e2e=   913.0ms  out=46
+   [10/10] ttft=  114.0ms  tpot= 17.3ms  e2e=  1204.5ms  out=64
+
+────────────────────────────────────────────────────────────────
+  compare  (UD-Q2_K_XL)
+────────────────────────────────────────────────────────────────
+  model     : gemma-4-E2B-it-UD-Q2_K_XL.gguf
+  threads   : 12   ngl: 99   ctx: 2048   max_tokens: 64
+  starting llama-server ...
+  ready in 5114 ms (model load + warm-up of the HTTP stack)
+   [ 1/10] ttft=  451.5ms  tpot= 17.3ms  e2e=  1544.0ms  out=64
+   [ 2/10] ttft=  107.1ms  tpot= 19.7ms  e2e=   500.3ms  out=21
+   [ 3/10] ttft=  117.2ms  tpot= 18.2ms  e2e=  1265.4ms  out=64
+   [ 4/10] ttft=  118.8ms  tpot= 17.1ms  e2e=  1199.2ms  out=64
+   [ 5/10] ttft=  109.9ms  tpot= 16.7ms  e2e=  1159.7ms  out=64
+   [ 6/10] ttft=  109.1ms  tpot= 18.1ms  e2e=  1252.3ms  out=64
+   [ 7/10] ttft=  108.5ms  tpot= 17.2ms  e2e=  1191.0ms  out=64
+   [ 8/10] ttft=  112.3ms  tpot= 19.2ms  e2e=  1324.1ms  out=64
+   [ 9/10] ttft=  105.7ms  tpot= 19.5ms  e2e=  1336.6ms  out=64
+   [10/10] ttft=  108.2ms  tpot= 17.8ms  e2e=  1226.9ms  out=64
+
+# 01 - Measure: latency baseline
+
+Model `Gemma 4 E2B` · host `Darwin-arm64` · llama.cpp `b10488`
+Settings: `threads=12` `ngl=99` `ctx=2048`
+`max_tokens=64` · warm-up discarded
+Completed requests: `UD-Q4_K_XL` 10/10 · `UD-Q2_K_XL` 10/10
+
+| Quantization | Size (GB) | Load (ms) | TTFT P50/P95 (ms) | TPOT P50/P95 (ms) | E2E P50/P95/P99 (ms) | Decode (tok/s) |
+|:--|--:|--:|--:|--:|--:|--:|
+| UD-Q4_K_XL | 2.97 | 6195 | 114 / 337 | 18.6 / 19.9 | 1297 / 1512 / 1512 | 53.6 |
+| UD-Q2_K_XL | 2.24 | 5114 | 109 / 452 | 17.8 / 19.7 | 1227 / 1544 / 1544 | 56.3 |
+
+- **TTFT** = prefill. Short prompts keep it small; long-context RAG is where it explodes.
+- **TPOT** = per-output-token decode cost, bounded by memory bandwidth. `decode tok/s = 1000 / TPOT_p50`.
+- `UD-Q2_K_XL` decodes **1.05x faster** than `UD-Q4_K_XL` here, for 0.73 GB less on disk.
+
+## Your observation (required -- replace this line)
+
+_Is the smaller quantization worth it on your machine? Compare the numbers above,
+then judge the answer quality yourself: run `make serve` on each and ask the same
+question twice. Size and speed are measurable; usefulness is your call._
+
+==> Wrote benchmarks/01-quickstart-results.md
+
+===============================================================================
+FINISHED: 2026-08-20 22:55:46 +07   ELAPSED: 37s   EXIT CODE: 0
+===============================================================================

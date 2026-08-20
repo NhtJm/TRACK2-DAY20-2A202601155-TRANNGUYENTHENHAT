@@ -1,0 +1,40 @@
+===============================================================================
+COMMAND : make pipeline
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:01:01 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  03 - RAG pipeline
+────────────────────────────────────────────────────────────────
+  llama-server : http://localhost:8080
+  embeddings   : none (keyword overlap fallback)
+
+=== Why is goodput more useful than raw throughput?
+  contexts : [('goodput', 1.0), ('paged', 0.0), ('radix', 0.0)]
+  timings  : {'embed': 0.0, 'retrieve': 0.0, 'llm': 3513.2, 'total': 3513.2}
+  server   : prefill 149 tok / 2812 ms, decode 30 tok / 625 ms
+  answer   : Goodput@SLO counts only the requests per second that met the TTFT and TPOT targets. Throughput at saturation ignores SLOs.
+
+=== What problem does PagedAttention actually solve?
+  contexts : [('paged', 1.0), ('radix', 0.0), ('disagg', 0.0)]
+  timings  : {'embed': 0.0, 'retrieve': 0.1, 'llm': 705.5, 'total': 705.6}
+  server   : prefill 114 tok / 203 ms, decode 23 tok / 482 ms
+  answer   : PagedAttention stores the KV cache in non-contiguous pages, removing the internal fragmentation that wasted most GPU memory.
+
+=== When does splitting prefill and decode help?
+  contexts : [('disagg', 2.0), ('radix', 1.0), ('batching', 1.0)]
+  timings  : {'embed': 0.0, 'retrieve': 0.0, 'llm': 721.2, 'total': 721.2}
+  server   : prefill 113 tok / 204 ms, decode 24 tok / 495 ms
+  answer   : Splitting prefill and decode helps because prefill is compute-bound and decode is memory-bandwidth-bound.
+
+  Mean over 3 queries (ms): {'embed': 0.0, 'retrieve': 0.0, 'llm': 1646.6, 'total': 1646.7}
+  Dominant stage: llm (100% of total)
+
+==> Wrote benchmarks/03-integration-results.md
+  Put these numbers in REFLECTION.md section 4 as well.
+
+===============================================================================
+FINISHED: 2026-08-20 23:01:07 +07   ELAPSED: 6s   EXIT CODE: 0
+===============================================================================

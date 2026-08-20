@@ -1,0 +1,21 @@
+===============================================================================
+COMMAND : bash -c BIN=runtime/b10488/llama-b10488/llama-bench; M=models/gemma-4-E2B-it-UD-Q4_K_XL.gguf; echo "### f16 KV (default)"; $BIN -m $M -t 6 -ngl 99 -p 512 -n 128 -r 3 2>&1 | grep -E "^\||model"; echo; echo "### q8_0 KV"; $BIN -m $M -t 6 -ngl 99 -ctk q8_0 -ctv q8_0 -p 512 -n 128 -r 3 2>&1 | grep -E "^\||model"
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:09:24 +07
+===============================================================================
+### f16 KV (default)
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| gemma4 E2B Q4_K - Medium       |   2.95 GiB |     4.65 B | MTL,BLAS   |       6 |           pp512 |      1022.05 ± 25.50 |
+| gemma4 E2B Q4_K - Medium       |   2.95 GiB |     4.65 B | MTL,BLAS   |       6 |           tg128 |         66.60 ± 1.92 |
+
+### q8_0 KV
+| model                          |       size |     params | backend    | threads | type_k | type_v |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | -----: | -----: | --------------: | -------------------: |
+| gemma4 E2B Q4_K - Medium       |   2.95 GiB |     4.65 B | MTL,BLAS   |       6 |   q8_0 |   q8_0 |           pp512 |        997.46 ± 8.29 |
+| gemma4 E2B Q4_K - Medium       |   2.95 GiB |     4.65 B | MTL,BLAS   |       6 |   q8_0 |   q8_0 |           tg128 |         50.03 ± 1.71 |
+
+===============================================================================
+FINISHED: 2026-08-20 23:09:47 +07   ELAPSED: 23s   EXIT CODE: 0
+===============================================================================

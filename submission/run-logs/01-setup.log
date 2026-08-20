@@ -1,0 +1,117 @@
+===============================================================================
+COMMAND : make setup
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:54:58 +07
+===============================================================================
+Requirement already satisfied: huggingface_hub<2,>=0.24.0 in ./.venv/lib/python3.11/site-packages (from -r requirements.txt (line 15)) (1.28.0)
+Requirement already satisfied: httpx<1,>=0.27.0 in ./.venv/lib/python3.11/site-packages (from -r requirements.txt (line 16)) (0.28.1)
+Requirement already satisfied: locust<3,>=2.30.0 in ./.venv/lib/python3.11/site-packages (from -r requirements.txt (line 17)) (2.46.3)
+Requirement already satisfied: numpy<3,>=1.26.0 in ./.venv/lib/python3.11/site-packages (from -r requirements.txt (line 18)) (2.4.6)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (8.4.2)
+Requirement already satisfied: filelock>=3.10.0 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (3.32.3)
+Requirement already satisfied: fsspec>=2023.5.0 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (2026.7.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (1.6.0)
+Requirement already satisfied: packaging>=20.9 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (26.3)
+Requirement already satisfied: pyyaml>=5.1 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (6.0.3)
+Requirement already satisfied: tqdm>=4.42.1 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (4.70.0)
+Requirement already satisfied: typing-extensions>=4.1.0 in ./.venv/lib/python3.11/site-packages (from huggingface_hub<2,>=0.24.0->-r requirements.txt (line 15)) (4.16.0)
+Requirement already satisfied: anyio in ./.venv/lib/python3.11/site-packages (from httpx<1,>=0.27.0->-r requirements.txt (line 16)) (4.14.2)
+Requirement already satisfied: certifi in ./.venv/lib/python3.11/site-packages (from httpx<1,>=0.27.0->-r requirements.txt (line 16)) (2026.7.22)
+Requirement already satisfied: httpcore==1.* in ./.venv/lib/python3.11/site-packages (from httpx<1,>=0.27.0->-r requirements.txt (line 16)) (1.0.9)
+Requirement already satisfied: idna in ./.venv/lib/python3.11/site-packages (from httpx<1,>=0.27.0->-r requirements.txt (line 16)) (3.19)
+Requirement already satisfied: configargparse>=1.7.1 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.7.5)
+Requirement already satisfied: flask-cors>=3.0.10 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (6.0.5)
+Requirement already satisfied: flask-login>=0.6.3 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (0.6.3)
+Requirement already satisfied: flask>=2.0.0 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.1.3)
+Requirement already satisfied: gevent>=24.10.1 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (26.8.0)
+Requirement already satisfied: geventhttpclient>=2.3.1 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.3.9)
+Requirement already satisfied: msgpack>=1.0.0 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.2.1)
+Requirement already satisfied: psutil>=5.9.1 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (7.2.2)
+Requirement already satisfied: pytest<10,>=8.3.3 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (9.1.1)
+Requirement already satisfied: python-engineio>=4.12.2 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (4.13.5)
+Requirement already satisfied: python-socketio>=5.13.0 in ./.venv/lib/python3.11/site-packages (from python-socketio[client]>=5.13.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (5.16.4)
+Requirement already satisfied: pyzmq>=25.0.0 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (27.1.0)
+Requirement already satisfied: requests>=2.32.2 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.34.2)
+Requirement already satisfied: werkzeug>=2.0.0 in ./.venv/lib/python3.11/site-packages (from locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.1.8)
+Requirement already satisfied: h11>=0.16 in ./.venv/lib/python3.11/site-packages (from httpcore==1.*->httpx<1,>=0.27.0->-r requirements.txt (line 16)) (0.16.0)
+Requirement already satisfied: iniconfig>=1.0.1 in ./.venv/lib/python3.11/site-packages (from pytest<10,>=8.3.3->locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in ./.venv/lib/python3.11/site-packages (from pytest<10,>=8.3.3->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in ./.venv/lib/python3.11/site-packages (from pytest<10,>=8.3.3->locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.21.0)
+Requirement already satisfied: blinker>=1.9.0 in ./.venv/lib/python3.11/site-packages (from flask>=2.0.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in ./.venv/lib/python3.11/site-packages (from flask>=2.0.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.2.0)
+Requirement already satisfied: jinja2>=3.1.2 in ./.venv/lib/python3.11/site-packages (from flask>=2.0.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.1.6)
+Requirement already satisfied: markupsafe>=2.1.1 in ./.venv/lib/python3.11/site-packages (from flask>=2.0.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.0.3)
+Requirement already satisfied: greenlet>=3.2.2 in ./.venv/lib/python3.11/site-packages (from gevent>=24.10.1->locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.5.5)
+Requirement already satisfied: zope.event in ./.venv/lib/python3.11/site-packages (from gevent>=24.10.1->locust<3,>=2.30.0->-r requirements.txt (line 17)) (6.2)
+Requirement already satisfied: zope.interface in ./.venv/lib/python3.11/site-packages (from gevent>=24.10.1->locust<3,>=2.30.0->-r requirements.txt (line 17)) (8.6)
+Requirement already satisfied: brotli in ./.venv/lib/python3.11/site-packages (from geventhttpclient>=2.3.1->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.2.0)
+Requirement already satisfied: urllib3 in ./.venv/lib/python3.11/site-packages (from geventhttpclient>=2.3.1->locust<3,>=2.30.0->-r requirements.txt (line 17)) (2.7.0)
+Requirement already satisfied: simple-websocket>=0.10.0 in ./.venv/lib/python3.11/site-packages (from python-engineio>=4.12.2->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.1.0)
+Requirement already satisfied: bidict>=0.21.0 in ./.venv/lib/python3.11/site-packages (from python-socketio>=5.13.0->python-socketio[client]>=5.13.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (0.23.1)
+Requirement already satisfied: websocket-client>=0.54.0 in ./.venv/lib/python3.11/site-packages (from python-socketio[client]>=5.13.0->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.9.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.11/site-packages (from requests>=2.32.2->locust<3,>=2.30.0->-r requirements.txt (line 17)) (3.5.1)
+Requirement already satisfied: wsproto in ./.venv/lib/python3.11/site-packages (from simple-websocket>=0.10.0->python-engineio>=4.12.2->locust<3,>=2.30.0->-r requirements.txt (line 17)) (1.3.2)
+────────────────────────────────────────────────────────────────
+  Platform : Darwin 23.6.0 (arm64)
+  CPU      : Apple M2 Pro
+             12 physical · 12 logical cores
+             extensions: NEON
+  RAM      : 16.0 GB
+  GPU      : apple_metal
+             - apple_metal: Apple Silicon (Metal built into the release binary)
+────────────────────────────────────────────────────────────────
+
+  Model         : Gemma 4 E2B  [LAB_MODEL=gemma4-e2b]
+                  unsloth/gemma-4-E2B-it-GGUF  (~5.2 GB)
+                  primary  gemma-4-E2B-it-UD-Q4_K_XL.gguf  (2.97 GB)
+                  compare  gemma-4-E2B-it-UD-Q2_K_XL.gguf  (2.24 GB)
+                  chosen because: enough RAM for the default model
+  Other option  : LAB_MODEL=qwen35-0.8b  ->  Qwen3.5 0.8B, ~0.9 GB, needs 4.0 GB RAM
+  llama.cpp     : prebuilt release b10488  (llama-b10488-bin-macos-arm64.tar.gz)
+  GPU offload   : ACTIVE -- MTL0: Apple M2 Pro (10922 MiB, 10922 MiB free)
+  source build  : -DGGML_METAL=ON  (bonus B1 -- not used by the base track)
+  Tracks open   : 01-measure, 02-serve, 03-integrate, bonus/sweeps, bonus/mlx
+────────────────────────────────────────────────────────────────
+
+Saved hardware.json -- every other track reads this.
+==> llama-server already present: runtime/b10488/llama-b10488/llama-server
+    (re-fetch with --force)
+==> Model: Gemma 4 E2B  (LAB_MODEL=gemma4-e2b)
+    https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF
+    Apache-2.0, not gated — no token, no license click-through.
+    Download size: ~5.2 GB
+    (other option: LAB_MODEL=qwen35-0.8b -> Qwen3.5 0.8B, ~0.9 GB)
+    already present: models/gemma-4-E2B-it-UD-Q4_K_XL.gguf
+    already present: models/gemma-4-E2B-it-UD-Q2_K_XL.gguf
+
+==> Wrote models/active.json  (5.2 GB on disk)
+     2.97 GB  gemma-4-E2B-it-UD-Q4_K_XL.gguf
+     2.24 GB  gemma-4-E2B-it-UD-Q2_K_XL.gguf
+
+────────────────────────────────────────────────────────────────
+  1/3  Probing hardware
+────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────
+  2/3  Fetching the llama.cpp runtime
+────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────
+  3/3  Downloading Gemma 4 E2B (two quantizations, ~5.2 GB)
+────────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────────
+  Setup complete
+────────────────────────────────────────────────────────────────
+  Next:
+    make bench      # track 01 - TTFT / TPOT / percentiles, both quants
+    make tune       # track 01 - find your best thread count (before/after)
+    make serve      # track 02 - OpenAI-compatible server + /metrics on :8080
+
+  Full walkthrough: GUIDE.md
+
+
+===============================================================================
+FINISHED: 2026-08-20 22:55:01 +07   ELAPSED: 3s   EXIT CODE: 0
+===============================================================================

@@ -1,0 +1,43 @@
+===============================================================================
+COMMAND : .venv/bin/python /private/tmp/claude-501/-Users-nhatnguyen-Desktop-AIA-labs-phase2-track2-TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/3b94ac3b-eb9c-400e-9397-1287f5fdbbd1/scratchpad/quality.py http://localhost:8090 UD-Q2_K_XL (compare, port 8090)
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:02:00 +07
+===============================================================================
+===== UD-Q2_K_XL (compare, port 8090)  (http://localhost:8090) =====
+
+--- [factual] In exactly two sentences: why is LLM decode memory-bandwidth-bound while prefill is compute-bound?
+> LLM decoding is memory-bandwidth-bound because it involves fetching and processing large sequences of tokens, which is limited by the speed at which data can be moved between memory and the processing units. Conversely, prefill is compute-bound because it involves the initial processing and context building, which is primarily limited by the computational power required for matrix multiplications and attention mechanisms.
+  (74 tok @ 54.5 tok/s)
+
+--- [arithmetic] A server holds 4 decode slots. Requests arrive at 1.8 per second and each takes 21.5 seconds end to end. Using Little's Law, how many requests are in the system? Give the number and the one-line calculation.
+> Here's how to calculate the number of requests in the system using Little's Law:
+
+**Little's Law:** $L = \lambda W$
+Where:
+* $L$ is the average number of items in the system (the number of requests).
+* $\lambda$ is the average arrival rate (requests per unit time).
+* $W$ is the average time an item spends in the system (the time taken for a request).
+
+**Given:**
+
+* **Server Capacity (Decode Slots):** 4
+* **Arrival Rate ($\lambda$):** 1.8 requests per second
+* **Average Time in System ($W$):** 21.5 seconds
+
+**Calculation:**
+
+$$L = \lambda \times W$$
+$$L = 1.8 \text{ requests/s} \times 21.5 \text{ seconds}$$
+$$L = 38.7$$
+
+**Answer
+  (200 tok @ 57.0 tok/s)
+
+--- [format] Return ONLY valid JSON, no prose: {"ttft_ms": 114, "tpot_ms": 18.6} but with the two values swapped.
+> {"ttft_ms": 18.6, "tpot_ms": 114}
+  (24 tok @ 51.9 tok/s)
+
+===============================================================================
+FINISHED: 2026-08-20 23:02:06 +07   ELAPSED: 6s   EXIT CODE: 0
+===============================================================================

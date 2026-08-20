@@ -1,0 +1,43 @@
+===============================================================================
+COMMAND : .venv/bin/python /private/tmp/claude-501/-Users-nhatnguyen-Desktop-AIA-labs-phase2-track2-TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/3b94ac3b-eb9c-400e-9397-1287f5fdbbd1/scratchpad/quality.py http://localhost:8080 UD-Q4_K_XL (primary, port 8080)
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:01:31 +07
+===============================================================================
+===== UD-Q4_K_XL (primary, port 8080)  (http://localhost:8080) =====
+
+--- [factual] In exactly two sentences: why is LLM decode memory-bandwidth-bound while prefill is compute-bound?
+> LLM decoding is memory-bandwidth-bound because it involves sequentially fetching and processing large amounts of token embeddings from memory for each new output token. Conversely, the prefill phase is compute-bound because it requires intensive matrix multiplications to process the entire input prompt in parallel.
+  (55 tok @ 50.8 tok/s)
+
+--- [arithmetic] A server holds 4 decode slots. Requests arrive at 1.8 per second and each takes 21.5 seconds end to end. Using Little's Law, how many requests are in the system? Give the number and the one-line calculation.
+> Here's the solution using Little's Law:
+
+**1. Identify the given values:**
+
+* **Number of servers ($s$):** 4
+* **Arrival rate ($\lambda$):** 1.8 requests per second
+* **Time in the system ($W$):** 21.5 seconds (This is the average time a request spends in the system, $W_s$)
+
+**2. Apply Little's Law:**
+
+Little's Law states: $L = \lambda W$ (where $L$ is the average number of items in the system).
+
+**3. Calculation:**
+
+$$L = (1.8 \text{ requests/second}) \times (21.5 \text{ seconds})$$
+$$L = 38.7$$
+
+**Answer:**
+
+* **Number of requests in the system:** 38.7
+* **One-line calculation:** $L =
+  (200 tok @ 55.9 tok/s)
+
+--- [format] Return ONLY valid JSON, no prose: {"ttft_ms": 114, "tpot_ms": 18.6} but with the two values swapped.
+> {"ttft_ms": 18.6, "tpot_ms": 114}
+  (24 tok @ 49.7 tok/s)
+
+===============================================================================
+FINISHED: 2026-08-20 23:01:38 +07   ELAPSED: 7s   EXIT CODE: 0
+===============================================================================

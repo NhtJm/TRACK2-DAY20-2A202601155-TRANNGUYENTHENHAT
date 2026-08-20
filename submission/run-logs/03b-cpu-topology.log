@@ -1,0 +1,17 @@
+===============================================================================
+COMMAND : bash -c sysctl -n machdep.cpu.brand_string; echo "hw.ncpu                 = $(sysctl -n hw.ncpu)"; echo "hw.physicalcpu          = $(sysctl -n hw.physicalcpu)"; echo "hw.logicalcpu           = $(sysctl -n hw.logicalcpu)"; echo "hw.nperflevels          = $(sysctl -n hw.nperflevels)"; echo "perflevel0 (P-cores)    = $(sysctl -n hw.perflevel0.physicalcpu) cores, L2 = $(sysctl -n hw.perflevel0.l2cachesize)"; echo "perflevel1 (E-cores)    = $(sysctl -n hw.perflevel1.physicalcpu) cores, L2 = $(sysctl -n hw.perflevel1.l2cachesize)"
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:56:54 +07
+===============================================================================
+Apple M2 Pro
+hw.ncpu                 = 12
+hw.physicalcpu          = 12
+hw.logicalcpu           = 12
+hw.nperflevels          = 2
+perflevel0 (P-cores)    = 8 cores, L2 = 16777216
+perflevel1 (E-cores)    = 4 cores, L2 = 4194304
+
+===============================================================================
+FINISHED: 2026-08-20 22:56:54 +07   ELAPSED: 0s   EXIT CODE: 0
+===============================================================================

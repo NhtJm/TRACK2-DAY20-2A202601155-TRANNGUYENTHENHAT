@@ -1,0 +1,63 @@
+===============================================================================
+COMMAND : .venv/bin/python /private/tmp/claude-501/-Users-nhatnguyen-Desktop-AIA-labs-phase2-track2-TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/3b94ac3b-eb9c-400e-9397-1287f5fdbbd1/scratchpad/kv_quant.py
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:07:28 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  BONUS C2 - KV cache quantization  (ctx=8192, parallel=4)
+────────────────────────────────────────────────────────────────
+
+===== f16 =====
+  /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/runtime/b10488/llama-b10488/llama-server -m /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/models/gemma-4-E2B-it-UD-Q4_K_XL.gguf --host 127.0.0.1 --port 8095 -t 12 -ngl 99 --ctx-size 8192 --parallel 4 --cont-batching --metrics --reasoning off
+   [arith] PASS  '1081'
+   [arith] PASS  '647'
+   [arith] FAIL  '330'
+   [arith] PASS  '1089'
+   [arith] PASS  '896'
+   [json ] PASS  '```json\n{\n  "name": "Mai",\n  "age": 31\n}\n```'
+   [json ] PASS  '```json\n{\n  "city": "Hanoi",\n  "population": 8000000\n}\n```'
+   [json ] PASS  '```json\n{\n  "model": "Gemma",\n  "tokens_per_second": 62\n}\n``'
+   [json ] PASS  '```json\n{\n  "port": 8080,\n  "status": "healthy"\n}\n```'
+   [json ] PASS  '```json\n{\n  "slots": 4,\n  "deferred": 44\n}\n```'
+
+===== q8_0 =====
+  /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/runtime/b10488/llama-b10488/llama-server -m /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT/models/gemma-4-E2B-it-UD-Q4_K_XL.gguf --host 127.0.0.1 --port 8095 -t 12 -ngl 99 --ctx-size 8192 --parallel 4 --cont-batching --metrics --reasoning off --cache-type-k q8_0 --cache-type-v q8_0
+   [arith] PASS  '1081'
+   [arith] PASS  '647'
+   [arith] FAIL  '330'
+   [arith] PASS  '1089'
+   [arith] PASS  '896'
+   [json ] PASS  '```json\n{\n  "name": "Mai",\n  "age": 31\n}\n```'
+   [json ] PASS  '```json\n{\n  "city": "Hanoi",\n  "population": 8000000\n}\n```'
+   [json ] PASS  '```json\n{\n  "model": "Gemma",\n  "tokens_per_second": 62\n}\n``'
+   [json ] PASS  '```json\n{\n  "port": 8080,\n  "status": "healthy"\n}\n```'
+   [json ] PASS  '```json\n{\n  "slots": 4,\n  "deferred": 44\n}\n```'
+
+[
+  {
+    "label": "f16",
+    "flags": "(default f16)",
+    "kv": {},
+    "rss_mb": 134.3,
+    "passed": 9,
+    "total": 10,
+    "decode_tok_s": 57.1,
+    "prefill_ms": 105.2
+  },
+  {
+    "label": "q8_0",
+    "flags": "--cache-type-k q8_0 --cache-type-v q8_0",
+    "kv": {},
+    "rss_mb": 152.4,
+    "passed": 9,
+    "total": 10,
+    "decode_tok_s": 45.3,
+    "prefill_ms": 123.6
+  }
+]
+
+===============================================================================
+FINISHED: 2026-08-20 23:07:51 +07   ELAPSED: 23s   EXIT CODE: 0
+===============================================================================

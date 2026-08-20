@@ -1,0 +1,34 @@
+===============================================================================
+COMMAND : make embed-demo
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 23:10:16 +07
+===============================================================================
+==> Embedding backend: llama-server /v1/embeddings @ http://localhost:8081/v1
+    dim = 1536   corpus = 8 docs
+
+Query: Does embedding serving use a KV cache and a decode loop like chat serving?
+
+Top matches (cosine similarity):
+  1. 0.847  Embedding serving is prefill-bound: one forward pass, no KV cache, no decode loop.
+  2. 0.784  RadixAttention reuses a shared prompt prefix across requests via a radix tree.
+  3. 0.751  Speculative decoding drafts several tokens and verifies them in one forward pass.
+
+==> Throughput sweep (texts/sec as batch grows — prefill-bound):
+  batch  1:    83.6 ms  ->    12.0 texts/s
+  batch  2:    84.5 ms  ->    23.7 texts/s
+  batch  4:   112.6 ms  ->    35.5 texts/s
+  batch  8:   245.6 ms  ->    32.6 texts/s
+  batch 16:   477.0 ms  ->    33.5 texts/s
+
+--- Teaching notes (Day 20 §5 Serving Regimes) ---
+ * Embedding serving is PREFILL-BOUND: 1 forward pass/text, no KV cache, no decode loop.
+ * Throughput comes from large STATIC batches (token-sorted), not continuous batching.
+ * FP8 gives ~50% more throughput at >99% cosine similarity (Snowflake Arctic: 16x vLLM).
+ * RAG/agent inference is HALF retrieval — this is the other serving discipline.
+ * For real retrieval quality use a dedicated embedding model (Qwen3-Embedding, BGE-M3);
+   reusing a chat GGUF here keeps the demo to zero extra downloads.
+
+===============================================================================
+FINISHED: 2026-08-20 23:10:18 +07   ELAPSED: 2s   EXIT CODE: 0
+===============================================================================

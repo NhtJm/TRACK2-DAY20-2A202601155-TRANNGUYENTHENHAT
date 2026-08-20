@@ -1,0 +1,31 @@
+===============================================================================
+COMMAND : make smoke
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:57:25 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  Smoke test against http://localhost:8080
+────────────────────────────────────────────────────────────────
+  /metrics before : tokens_predicted_total = 0
+
+==> POST http://localhost:8080/v1/chat/completions
+
+Goodput@SLO measures the amount of work completed within a specified Service Level Objective (SLO) timeframe.
+
+  server timings: prompt 35 tok in 310 ms  ->  113.0 tok/s prefill
+                  decode 24 tok in 442 ms  ->  52.1 tok/s
+
+==> GET http://localhost:8080/metrics   (rubric item 7 -- screenshot this)
+   llamacpp:tokens_predicted_total                   24.00   (+24)
+   llamacpp:prompt_tokens_total                      35.00   (+35)
+   llamacpp:n_decode_total                           26.00   (+26)
+   llamacpp:requests_processing                       0.00
+   llamacpp:n_busy_slots_per_decode                   1.00   (+1)
+
+OK -- served a completion and tokens_predicted_total is 24 (non-zero).
+
+===============================================================================
+FINISHED: 2026-08-20 22:57:26 +07   ELAPSED: 1s   EXIT CODE: 0
+===============================================================================

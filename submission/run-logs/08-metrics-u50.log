@@ -1,0 +1,48 @@
+===============================================================================
+COMMAND : make metrics
+CWD     : /Users/nhatnguyen/Desktop/AIA/labs/phase2-track2/TRACK2-DAY20-2A202601155-TRANNGUYENTHENHAT
+HOST    : Nhats-MBP-2 | Darwin 23.6.0 arm64
+STARTED : 2026-08-20 22:59:03 +07
+===============================================================================
+
+────────────────────────────────────────────────────────────────
+  Recording http://localhost:8080/metrics for 60s
+────────────────────────────────────────────────────────────────
+  Drive load in another terminal (make load-50) or these will all read idle.
+
+   (scrape failed)
+   (scrape failed)
+   busy_slots= 3.92  processing=  4  deferred= 46  tok_pred=    6867
+   busy_slots= 3.92  processing=  4  deferred= 45  tok_pred=    6963
+   busy_slots= 3.92  processing=  4  deferred= 46  tok_pred=    7203
+   busy_slots= 3.92  processing=  4  deferred= 44  tok_pred=    7419
+   busy_slots= 3.93  processing=  4  deferred= 46  tok_pred=    7611
+   busy_slots= 3.93  processing=  4  deferred= 45  tok_pred=    7793
+   busy_slots= 3.93  processing=  4  deferred= 45  tok_pred=    8020
+   busy_slots= 3.93  processing=  4  deferred= 44  tok_pred=    8274
+   busy_slots= 3.93  processing=  4  deferred= 44  tok_pred=    8466
+   busy_slots= 3.93  processing=  4  deferred= 45  tok_pred=    8588
+   busy_slots= 3.94  processing=  4  deferred= 46  tok_pred=    8684
+   busy_slots= 3.94  processing=  4  deferred= 44  tok_pred=    8963
+   busy_slots= 3.94  processing=  4  deferred= 45  tok_pred=    9155
+   busy_slots= 3.94  processing=  4  deferred= 44  tok_pred=    9343
+   busy_slots= 3.94  processing=  4  deferred= 45  tok_pred=    9487
+   busy_slots= 3.94  processing=  4  deferred= 44  tok_pred=    9713
+   busy_slots= 3.94  processing=  4  deferred= 45  tok_pred=    9857
+   busy_slots= 3.94  processing=  4  deferred= 43  tok_pred=   10097
+   busy_slots= 3.94  processing=  4  deferred= 44  tok_pred=   10279
+   busy_slots= 3.95  processing=  4  deferred= 44  tok_pred=   10464
+   busy_slots= 3.95  processing=  4  deferred= 45  tok_pred=   10642
+   busy_slots= 3.95  processing=  4  deferred= 44  tok_pred=   10834
+   busy_slots= 3.95  processing=  4  deferred= 45  tok_pred=   11026
+   busy_slots= 3.95  processing=  4  deferred= 42  tok_pred=   11170
+   busy_slots= 3.95  processing=  4  deferred= 38  tok_pred=   11410
+
+==> Wrote benchmarks/02-server-metrics-u50.csv
+==> Wrote benchmarks/02-server-batching-u50.md
+
+  Highest sampled n_busy_slots_per_decode = 3.95 of 4 slots
+
+===============================================================================
+FINISHED: 2026-08-20 23:00:04 +07   ELAPSED: 61s   EXIT CODE: 0
+===============================================================================
